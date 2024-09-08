@@ -1,5 +1,7 @@
+import { FoodTruckDataType } from "./types";
+
 // source: https://data.sfgov.org/resource/rqzj-sfat.json
-const mockData = [
+const mockData: FoodTruckDataType[] = [
     {
         "objectid": "1575198",
         "applicant": "Park's Catering",
