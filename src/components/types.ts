@@ -1,5 +1,5 @@
 export type FoodTruckType = {
     applicant: string,
-    address: string,
-    description: string, 
+    address?: string,
+    description?: string, 
 }
