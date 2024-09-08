@@ -1,16 +1,26 @@
 import FoodTruck from '@/components/FoodTruck';
-import mockData from './mockData';
 import { useState } from 'react';
 import debounce from 'lodash/debounce';
 import { FoodTruckDataType } from './types';
+import useSWR from 'swr';
+
+const fetcher = async (url: string) => {
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error('An error occurred while fetching the data.');
+  }
+
+  return res.json()
+}
 
 export default function Home() {
-  const data: FoodTruckDataType[] = mockData;
+  const { data } = useSWR("https://data.sfgov.org/resource/rqzj-sfat.json", fetcher, { shouldRetryOnError: false }) || {};
 
   const [filteredData, setFilteredData] = useState<FoodTruckDataType[]>();
 
   const handleOnChange = debounce((event) => {
-    const filtered: FoodTruckDataType[] = data.filter((truck) => (truck.applicant + truck.address + truck.fooditems).includes(event.target.value))
+    const filtered = data.filter((truck: FoodTruckDataType) => (truck.applicant + truck.address + truck.fooditems).includes(event.target.value))
     setFilteredData(filtered);
   }, 250);
 
