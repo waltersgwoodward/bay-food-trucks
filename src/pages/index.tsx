@@ -3,6 +3,7 @@ import { useState } from 'react';
 import debounce from 'lodash/debounce';
 import { FoodTruckDataType } from './types';
 import useSWR from 'swr';
+import Spinner from '@/components/Spinner';
 
 const fetcher = async (url: string) => {
   const res = await fetch(url);
@@ -15,7 +16,7 @@ const fetcher = async (url: string) => {
 }
 
 export default function Home() {
-  const { data } = useSWR("https://data.sfgov.org/resource/rqzj-sfat.json", fetcher, { shouldRetryOnError: false }) || {};
+  const { data, isLoading, error } = useSWR("https://data.sfgov.org/resource/rqzj-sfat.json", fetcher, { shouldRetryOnError: false }) || {};
 
   const [filteredData, setFilteredData] = useState<FoodTruckDataType[]>();
 
@@ -23,6 +24,14 @@ export default function Home() {
     const filtered = data.filter((truck: FoodTruckDataType) => (truck.applicant + truck.address + truck.fooditems).includes(event.target.value))
     setFilteredData(filtered);
   }, 250);
+
+  if (isLoading) {
+    return <Spinner />
+  }
+
+  if (error) {
+    return <div className="text-center m-6">There was an error retrieving the truck data! Please try again later!</div>
+  }
 
   const foodTrucks: FoodTruckDataType[] = filteredData || data || [];
 
