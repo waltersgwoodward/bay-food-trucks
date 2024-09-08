@@ -1,4 +1,4 @@
-import { FoodTruckDataType } from "./types";
+export type FoodTruckDataType = {objectid: string, applicant: string, locationdescription?: string, fooditems?: string, [key: string]: unknown};
 
 // source: https://data.sfgov.org/resource/rqzj-sfat.json
 const mockData: FoodTruckDataType[] = [

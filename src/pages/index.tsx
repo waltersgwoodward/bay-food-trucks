@@ -1,9 +1,9 @@
 import FoodTruck from '@/components/FoodTruck';
 import { useState } from 'react';
 import debounce from 'lodash/debounce';
-import { FoodTruckDataType } from './types';
 import useSWR from 'swr';
 import Spinner from '@/components/Spinner';
+import { FoodTruckDataType } from '../mockData';
 
 const fetcher = async (url: string) => {
   const res = await fetch(url);

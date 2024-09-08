@@ -1,1 +1,0 @@
-export type FoodTruckDataType = {objectid: string, applicant: string, locationdescription?: string, fooditems?: string, [key: string]: unknown};
