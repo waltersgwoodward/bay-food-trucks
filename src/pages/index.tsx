@@ -26,7 +26,7 @@ export default function Home() {
   }, 250);
 
   if (isLoading) {
-    return <Spinner />
+    return <Spinner className="flex h-screen items-center justify-center"/>
   }
 
   if (error) {
