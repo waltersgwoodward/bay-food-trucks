@@ -12,6 +12,7 @@ export type FoodTruckProps = {
 // source: https://tw-elements.com/docs/react/components/cards/
 const FoodTruck = ({ applicant, address, description }: FoodTruckProps) => {
     const [isLoading, setIsLoading] = useState(true);
+    const [count, setCount] = useState(0);
 
     return (<>
         <div className="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row">
@@ -20,7 +21,11 @@ const FoodTruck = ({ applicant, address, description }: FoodTruckProps) => {
                 width={500}
                 height={500}
                 className={clsx(!!isLoading && 'opacity-0 absolute z-[-1]', "h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg")}
-                onLoad={() => setIsLoading(prev => !prev)}
+                onLoad={() => setIsLoading(prev => {
+                    setCount(prev => prev++)
+                    return !prev
+                })}
+                priority={count < 5}
                 src="/food-truck.jpg"
                 alt="" />
             <div className={"flex flex-col justify-start p-6"}>
