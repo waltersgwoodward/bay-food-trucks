@@ -16,7 +16,7 @@ const FoodTruck = ({ applicant, address, description }: FoodTruckProps) => {
 
     return (<>
         <div className="flex flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 md:max-w-xl md:flex-row">
-            {isLoading && <Spinner className="flex items-center justify-center h-96 w-full md:h-auto md:min-w-[192px] md:max-w-[192px] pl-6" fill="fill-gray-600" />}
+            {isLoading && <Spinner className="flex items-center justify-center h-96 w-screen md:h-auto md:min-w-[192px] md:max-w-[192px] md:pl-6" fill="fill-gray-600" />}
             <Image
                 width={500}
                 height={500}
