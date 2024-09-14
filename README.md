@@ -31,10 +31,11 @@ To meet these goals, where possible, I removed potential time sinks from the pro
 
 In the initial planning phase, I spent more time than was probably necessary considering how to fetch the data from DataSF, and working towards integrating the location data into a map from the Google Map API earlier in the process (which I ultimately abandoned). If I were to do a similar project again, I think I would just rely on my past experience and choose the fetching method I was most familiar with (which is how I ended up using SWR) and probably eliminate the use of the Google Map API (which would have pushed this project well beyond the allotted 2 to 3 hour recommendation).
 
-### Feature Ideas
+### Future Development Ideas
 
 The more I considered this particular dataset from DataSF, the more ideas for future improvements and new features came to mind. Below is a list of some of the ideas that I would have liked to implement given more time:
 
+* Update fetch logic to make multiple requests to ensure that all data is retrieved since current implementation is limited to 1000 results.
 * Add more substantial types, particularly in terms of the expected responses (and errors) from DataSF and any other APIs used.
 * Break up the rendered content in the Home component into smaller components (e.g. FoodTruckList, SearchFilter) that could be more thoroughly tested.
 * Integrate the Google Map API so that, instead of a comically long list of items, these various food trucks could be represented as markers on a map that, when selected, would render a modal with more detailed info.
