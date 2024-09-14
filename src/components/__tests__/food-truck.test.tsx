@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import FoodTruck from "../FoodTruck"
-import { FoodTruckType } from "../types"
+import FoodTruck, { FoodTruckProps } from "../FoodTruck"
 
-const props: FoodTruckType = {
+const props: FoodTruckProps = {
     applicant: "applicant",
     address: "address",
     description: "description",

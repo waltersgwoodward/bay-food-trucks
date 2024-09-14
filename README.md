@@ -37,7 +37,6 @@ The more I considered this particular dataset from DataSF, the more ideas for fu
 
 * Update fetch logic to make multiple requests to ensure that all data is retrieved since current implementation is limited to 1000 results.
 * Add more substantial types, particularly in terms of the expected responses (and errors) from DataSF and any other APIs used.
-* Break up the rendered content in the Home component into smaller components (e.g. FoodTruckList, SearchFilter) that could be more thoroughly tested.
 * Integrate the Google Map API so that, instead of a comically long list of items, these various food trucks could be represented as markers on a map that, when selected, would render a modal with more detailed info.
 * Include direction links using the longitude and latitude data for each food truck for Google and Apple maps.
 * Create a visual distinction between approved and expired permits.

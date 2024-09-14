@@ -1,7 +1,7 @@
-export type FoodTruckDataType = {objectid: string, applicant: string, locationdescription?: string, fooditems?: string, [key: string]: unknown};
+export type FoodTruckDataType = { objectid: string, applicant: string, locationdescription?: string, fooditems?: string, [key: string]: unknown };
 
 // source: https://data.sfgov.org/resource/rqzj-sfat.json
-const mockData: FoodTruckDataType[] = [
+export const mockData: FoodTruckDataType[] = [
     {
         "objectid": "1575198",
         "applicant": "Park's Catering",
@@ -15751,4 +15751,11 @@ const mockData: FoodTruckDataType[] = [
     }
 ]
 
-export default mockData;
+export const mockErrorResponse = {
+    "code": "query.compiler.malformed",
+    "error": true,
+    "message": "Could not parse SoQL query \"select * where string_column > 42\"",
+    "data": {
+        "query": "select * where string_column > 42"
+    }
+}

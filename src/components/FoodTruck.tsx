@@ -1,11 +1,16 @@
 import Image from "next/image";
-import { FoodTruckType } from "./types"
 import { useState } from "react";
 import Spinner from "./Spinner";
 import clsx from "clsx";
 
+export type FoodTruckProps = {
+    applicant: string,
+    address?: string,
+    description?: string,
+}
+
 // source: https://tw-elements.com/docs/react/components/cards/
-const FoodTruck = ({ applicant, address, description }: FoodTruckType) => {
+const FoodTruck = ({ applicant, address, description }: FoodTruckProps) => {
     const [isLoading, setIsLoading] = useState(true);
 
     return (<>
